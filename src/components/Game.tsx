@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react'
 import axios from 'axios';
 import { Grid2, Button, Box, Dialog, DialogTitle, DialogContent, DialogContentText, LinearProgress } from '@mui/material';
 function Game() {
-  const alphabet: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  const [word, setWord] = useState<string[]>([])
-  const [displayWord, setDisplayWord] = useState<string>("")
+  const BASE_URL = import.meta.env.BASE_URL;
+  const alphabet: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const [word, setWord] = useState<string[]>([]);
+  const [displayWord, setDisplayWord] = useState<string>("");
   const [guessCount, setGuessCount] = useState<number>(0);
   const [guesses, setGuesses] = useState<string[]>([]);
   const [win, setWin] = useState<boolean>(false);
@@ -82,7 +83,7 @@ function Game() {
     <>
       <Box 
         component="img"
-        src={`/${guessCount}.jpg`} 
+        src={`${BASE_URL}${guessCount}.jpg`} 
         alt="Random"
         sx={{
         width: "300",
